@@ -46,36 +46,36 @@ public class PlayerController : MovingObject
 	public string playerRace;
 	public string playerClass;
 
-	public float damageMin;
-	public float damageMax;
+	public int damageMin;
+	public int damageMax;
 
-	private float attributeModifiedDamageMin;
-	private float attributeModifiedDamageMax;
+	private int attributeModifiedDamageMin;
+	private int attributeModifiedDamageMax;
 
 
-	public float playerArmor;
+	public int playerArmor;
 
-	public float playerBlockChance;
+	public int playerBlockChance;
 
-	public float playerParryChance;
+	public int playerParryChance;
 
-	public float playerDodgeChance;
+	public int playerDodgeChance;
 
-	public float playerStrength;
-	public float playerDexterity;
-	public float playerStamina;
-	public float playerIntelligence;
+	public int playerStrength;
+	public int playerDexterity;
+	public int playerStamina;
+	public int playerIntelligence;
 
-	private float oldPlayerStrength;
-	private float oldPlayerDexterity;
-	private float oldPlayerStamina;
-	private float oldPlayerIntelligence;
+	private int oldPlayerStrength;
+	private int oldPlayerDexterity;
+	private int oldPlayerStamina;
+	private int oldPlayerIntelligence;
 
-	public float curHealth;
-	public float curMana;
-	public float curExperience;
+	public int curHealth;
+	public int curMana;
+	public int curExperience;
 
-	private float attributeModifiedMaxHealth;
+	private int attributeModifiedMaxHealth;
 
 	Vector3 direction;
 
@@ -124,9 +124,9 @@ public class PlayerController : MovingObject
 
 	void UpdateStatsByAttributeBonus()
 	{
-		attributeModifiedDamageMin = (int)damageMin + 1.5f * playerStrength;
-		attributeModifiedDamageMax = (int)damageMax + 1.5f * playerStrength;
-		attributeModifiedMaxHealth = (int)MaxHealth + 2f * playerStamina;
+		attributeModifiedDamageMin = damageMin + (int)1.5f * playerStrength;
+		attributeModifiedDamageMax = damageMax + (int)1.5f * playerStrength;
+		attributeModifiedMaxHealth = MaxHealth + (int)2f * playerStamina;
 	}
 
 	void UpdateCharacterSheet()
@@ -161,9 +161,9 @@ public class PlayerController : MovingObject
 
 	public string PlayerName { get; set; }
 
-	public float MinHealth { get; set; }
-	public float MaxHealth { get; set; }
-	public float CurHealth
+	public int MinHealth { get; set; }
+	public int MaxHealth { get; set; }
+	public int CurHealth
 	{
 		get
 		{
@@ -176,9 +176,9 @@ public class PlayerController : MovingObject
 		}
 	}
 
-	public float MinMana { get; set; }
-	public float MaxMana { get; set; }
-	public float CurMana
+	public int MinMana { get; set; }
+	public int MaxMana { get; set; }
+	public int CurMana
 	{
 		get
 		{
@@ -191,9 +191,9 @@ public class PlayerController : MovingObject
 		}
 	}
 
-	public float MinExperience { get; set; }
-	public float MaxExperience { get; set; }
-	public float CurExperience
+	public int MinExperience { get; set; }
+	public int MaxExperience { get; set; }
+	public int CurExperience
 	{
 		get
 		{
@@ -489,7 +489,7 @@ public class PlayerController : MovingObject
 
 	public void damagePlayer(int loss, string enemyName)
 	{
-		float a = loss - playerArmor;
+		int a = loss - playerArmor;
 		if (a < 0) a = 0;
 		CurHealth -= a;
 		eventLog.AddEvent("<color=#ff0000ff>A " + enemyName + " hit " + PlayerName +

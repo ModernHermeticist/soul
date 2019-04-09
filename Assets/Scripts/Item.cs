@@ -12,13 +12,13 @@ public class Item : MonoBehaviour
 
 	public string slot;
 
-	public float minDamage;
-	public float maxDamage;
+	public int minDamage;
+	public int maxDamage;
 
-	public float armor;
-	public float dodgeChance;
-	public float parryChance;
-	public float blockChance;
+	public int armor;
+	public int dodgeChance;
+	public int parryChance;
+	public int blockChance;
 
 	public string description;
 
